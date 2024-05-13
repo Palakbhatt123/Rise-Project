@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgControl, Validators } from '@angular/forms';
+import { LoginRequest } from '../models/login-request.model';
+import { MealService } from '../services/meal.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +15,7 @@ export class LoginComponent {
 
   hide = true;
   type = "password"; 
+  model:LoginRequest;
 
 
   toggleVisibility(): void {
@@ -25,10 +29,17 @@ export class LoginComponent {
 
 loginForm !: FormGroup;
 
-constructor(private fb:FormBuilder)
+
+
+constructor(private fb:FormBuilder,private mealService:MealService,private router: Router)
 {
+  this.model={
+    username:'',
+    password:''
+  };
 
 }
+
 
 ngOnInit(): void
 {
@@ -40,6 +51,17 @@ ngOnInit(): void
    
 
   onSubmite(){
+    console.log(this.model);
+    this.mealService.loginVerify(this.model).subscribe({
+      next:(response)=>{
+        this.router.navigateByUrl("/home");
+      },
+      error:(error)=>{
+        if(error.status==400){
+          alert("username or password is incorrect");
+        }
+      }
+    })
     if(this.loginForm.valid)
       {
         console.log(this.loginForm.value);

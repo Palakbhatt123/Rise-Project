@@ -12,6 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatCard, MatCardModule} from '@angular/material/card';
 import { SingupComponent } from './singup/singup.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './portal/home/home.component'
 
 @NgModule({
   declarations: [
@@ -21,14 +24,17 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
     ForgotPasswordComponent,
     OTPValidationComponent,
     SingupComponent,
-    NewpasswordComponent
+    NewpasswordComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

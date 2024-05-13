@@ -6,6 +6,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { OTPValidationComponent } from './otp-validation/otp-validation.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { SingupComponent } from './singup/singup.component';
+import { HomeComponent } from './portal/home/home.component';
 
 const routes: Routes = [
   {path:'nav-bar',component:NavBarComponent}
@@ -15,6 +16,7 @@ const routes: Routes = [
   ,{path:'otp-validation',component:OTPValidationComponent}
   ,{path:'singup',component:SingupComponent}
   ,{path:'newpassword',component:NewpasswordComponent}
+  ,{path:'home',component:HomeComponent}
 ];
 
 @NgModule({
