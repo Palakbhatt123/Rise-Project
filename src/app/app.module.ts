@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,7 +13,10 @@ import { SingupComponent } from './singup/singup.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { HomeComponent } from './portal/home/home.component'
+import { HomeComponent } from './portal/home/home.component';
+import {FullCalendarModule} from '@fullcalendar/angular';
+import {NgxWebstorageModule} from 'ngx-webstorage';
+import { ChangePasswordComponent } from './portal/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { HomeComponent } from './portal/home/home.component'
     OTPValidationComponent,
     SingupComponent,
     NewpasswordComponent,
-    HomeComponent
+    HomeComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { HomeComponent } from './portal/home/home.component'
     ReactiveFormsModule,
     MatCardModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FullCalendarModule,
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

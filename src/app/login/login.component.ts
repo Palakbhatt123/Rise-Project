@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, NgControl, Validators } from '@ang
 import { LoginRequest } from '../models/login-request.model';
 import { MealService } from '../services/meal.service';
 import { Router } from '@angular/router';
+import {SessionStorage, SessionStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ loginForm !: FormGroup;
 
 
 
-constructor(private fb:FormBuilder,private mealService:MealService,private router: Router)
+constructor(private sessionStorage:SessionStorageService,private fb:FormBuilder,private mealService:MealService,private router: Router)
 {
   this.model={
     username:'',
@@ -54,6 +55,7 @@ ngOnInit(): void
     console.log(this.model);
     this.mealService.loginVerify(this.model).subscribe({
       next:(response)=>{
+        this.sessionStorage.store("emp",response)
         this.router.navigateByUrl("/home");
       },
       error:(error)=>{
