@@ -1,2 +1,23 @@
-<app-nav-bar></app-nav-bar>
-<p>home works!</p>
+<!-- <div class="container"> -->
+<div style="width: 100vw;" class="row">
+  <div class="col-md-3">
+    <!-- Your navigation bar component -->
+    <app-nav-bar *ngIf="showSideMenu"></app-nav-bar>
+  </div>
+  <div class="col-md-5">
+    <!-- Your full calendar component -->
+    <br><br><br>
+    <div  class="btn-container">
+      <button class="btn btn-xl btn-primary" (click)="showSideMenu = !showSideMenu">
+        Side Menu
+      </button>
+      <button class="btn btn-xl btn-primary">Add Booking</button>
+      <button class="btn btn-xl btn-primary">List View of Booking</button>
+      <button class="btn btn-xl btn-primary">Quick Add Meal</button>
+    </div>
+    <br><br><br>
+
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+</div>
+<!-- </div> -->
